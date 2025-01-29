@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rent/colors.dart';
+import 'package:rent/detail_screen.dart';
 import 'package:rent/login.dart';
 import 'package:rent/signup.dart';
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.poppins().fontFamily,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-      home: SignupPage(),
+      home: HomeScreen(),
     );
   }
 }

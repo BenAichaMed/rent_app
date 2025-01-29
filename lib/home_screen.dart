@@ -3,6 +3,7 @@ import 'package:rent/colors.dart';
 import 'package:rent/data.dart';
 
 import 'car_model.dart';
+import 'detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -281,120 +282,132 @@ class _HomeScreenState extends State<HomeScreen> {
                           // physics: neverScrollableScrollPhysics(),
                           itemCount: 3,
                           itemBuilder: (context, index) {
-                            return Container(
-                              margin: EdgeInsets.only(bottom: 15),
-                              decoration: BoxDecoration(
-                                color: AppColors.cardBg,
-                                borderRadius: BorderRadius.circular(15),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.05),
-                                    blurRadius: 10,
-                                    offset: Offset(0, 5),
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailScreen(
+                                      car: featuredCars[index],
+                                    ),
                                   ),
-                                ],
-                              ),
-                              child: Padding(
-                                  padding: EdgeInsets.all(15),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        height: 80,
-                                        width: 120,
-                                        decoration: BoxDecoration(
-                                          color: AppColors.primary
-                                              .withOpacity(0.1),
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                        ),
-                                        child: Center(
-                                          child: Image.asset(
-                                            featuredCars[index].image,
-                                            height: 60,
-                                            fit: BoxFit.cover,
+                                );
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(bottom: 15),
+                                decoration: BoxDecoration(
+                                  color: AppColors.cardBg,
+                                  borderRadius: BorderRadius.circular(15),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.05),
+                                      blurRadius: 10,
+                                      offset: Offset(0, 5),
+                                    ),
+                                  ],
+                                ),
+                                child: Padding(
+                                    padding: EdgeInsets.all(15),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          height: 80,
+                                          width: 120,
+                                          decoration: BoxDecoration(
+                                            color: AppColors.primary
+                                                .withOpacity(0.1),
+                                            borderRadius:
+                                                BorderRadius.circular(15),
                                           ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 15),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            featuredCars[index].name,
-                                            style: TextStyle(
-                                              color: AppColors.textDark,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
+                                          child: Center(
+                                            child: Image.asset(
+                                              featuredCars[index].image,
+                                              height: 60,
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
-                                          SizedBox(height: 5),
-                                          Text(
-                                            featuredCars[index].brand,
-                                            style: TextStyle(
-                                              color: AppColors.textLight,
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                          SizedBox(height: 5),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.amber,
-                                                size: 18,
+                                        ),
+                                        SizedBox(width: 15),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              featuredCars[index].name,
+                                              style: TextStyle(
+                                                color: AppColors.textDark,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
                                               ),
-                                              SizedBox(width: 5),
-                                              Text(
-                                                featuredCars[index]
-                                                    .rating
-                                                    .toString(),
-                                                style: TextStyle(
-                                                  color: AppColors.textDark,
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold,
+                                            ),
+                                            SizedBox(height: 5),
+                                            Text(
+                                              featuredCars[index].brand,
+                                              style: TextStyle(
+                                                color: AppColors.textLight,
+                                                fontSize: 14,
+                                              ),
+                                            ),
+                                            SizedBox(height: 5),
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.star,
+                                                  color: Colors.amber,
+                                                  size: 18,
                                                 ),
-                                              )
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      Spacer(),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          Text(
-                                            '\$${featuredCars[index].price}/day',
-                                            style: TextStyle(
-                                              color: AppColors.secondary,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
+                                                SizedBox(width: 5),
+                                                Text(
+                                                  featuredCars[index]
+                                                      .rating
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                    color: AppColors.textDark,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                )
+                                              ],
                                             ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          Container(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 12, vertical: 6),
-                                            decoration: BoxDecoration(
-                                              color: AppColors.secondary
-                                                  .withOpacity(0.1),
-                                              borderRadius:
-                                                  BorderRadius.circular(20),
-                                            ),
-                                            child: Text(
-                                              'Book Now',
+                                          ],
+                                        ),
+                                        Spacer(),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [
+                                            Text(
+                                              '\$${featuredCars[index].price}/day',
                                               style: TextStyle(
                                                 color: AppColors.secondary,
+                                                fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 12,
                                               ),
                                             ),
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  )),
+                                            SizedBox(height: 10),
+                                            Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 12, vertical: 6),
+                                              decoration: BoxDecoration(
+                                                color: AppColors.secondary
+                                                    .withOpacity(0.1),
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              child: Text(
+                                                'Book Now',
+                                                style: TextStyle(
+                                                  color: AppColors.secondary,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 12,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    )),
+                              ),
                             );
                           },
                         ),
@@ -413,7 +426,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildCarCard(Car car) {
     return GestureDetector(
         onTap: () {
-          // Navigator.push(context, MaterialPageRoute(builder: (context) =>CarDetailScreen,));
+          Navigator.push(context, MaterialPageRoute(builder: (context) =>DetailScreen(car: car,),));
         },
         child: Container(
           width: 200,
