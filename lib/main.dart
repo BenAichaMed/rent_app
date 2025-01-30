@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rent/add_screen.dart';
 import 'package:rent/colors.dart';
 import 'package:rent/detail_screen.dart';
 import 'package:rent/login.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.poppins().fontFamily,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-      home: HomeScreen(),
+      home: AddScreen(),
     );
   }
 }
